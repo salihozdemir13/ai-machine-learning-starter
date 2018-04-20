@@ -7,7 +7,7 @@ from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 
 # veriyi okuyoruz
-data = pd.read_csv("test.csv")
+data = pd.read_csv("linear-reg-linear-reg-test.csv")
 
 # print(data)
 
