@@ -26,7 +26,7 @@ m,b = np.polyfit(x, y, 1) # Numpy çizgimizi grafiğe oturtur (x eksen, y eksen,
 a = np.arange(150) # denklem hazırlandıktan sonra a nın aralığı ayarlanır
 
 plt.scatter(x,y) # 2 nokta çizdirimi
-plt.plot(m*a+b)
+plt.plot(m * a + b)
 
 z = int(input("Kaç metre kare giriniz? : "))
 tahmin = m * z + b
