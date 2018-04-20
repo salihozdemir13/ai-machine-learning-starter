@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 # veriyi okuyoruz
 data = pd.read_csv("test.csv")
 
-print(data)
+# print(data)
 
 x = data["x"]
 y = data["y"]
