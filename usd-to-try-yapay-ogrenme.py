@@ -4,7 +4,7 @@ from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import PolynomialFeatures
 
-veri = pd.read_csv("USD_TRY.csv")
+veri = pd.read_csv("usd-try.csv")
 # print(veri)
 
 x = veri["Gun"]
