@@ -35,6 +35,7 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 print(sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels}))
 
 # test #
+# Test çizimlerimizi okuyup el ile yazılan rakamı bulmaya çalışıyoruz. #
 
 draw = np.vectorize(lambda x: 255 - x)(np.ndarray.flatten(scipy.ndimage.imread("test-draw4.png", flatten=True)))
 
