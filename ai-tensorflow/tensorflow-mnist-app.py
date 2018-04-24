@@ -36,7 +36,7 @@ print(sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels}
 
 # test #
 
-draw = np.vectorize(lambda x: 255 - x)(np.ndarray.flatten(scipy.ndimage.imread("test-draw.png", flatten=True)))
+draw = np.vectorize(lambda x: 255 - x)(np.ndarray.flatten(scipy.ndimage.imread("test-draw4.png", flatten=True)))
 
 output = sess.run(tf.argmax(y, 1), feed_dict={x: [draw]})
 
