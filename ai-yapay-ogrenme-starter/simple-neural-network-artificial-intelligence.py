@@ -1,5 +1,6 @@
 from numpy import exp, array, random, dot
 
+# Sample Neural Network from Medium Documents.
 class NeuralNetwork():
     def __init__(self):
         # Seed the random number generator, so it generates the same numbers
