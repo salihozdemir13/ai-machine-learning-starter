@@ -12,19 +12,25 @@ import scipy.ndimage
 
 x = tf.placeholder(tf.float32, [None, 784])
 
-W = tf.Variable(tf.zeros([784, 10])) # tf.zeros tüm değerleri 0 yapar. 784 e 10 luk matris oluşturduk, bu matristen 55000 adet arka arkaya düşünerek eğitimi anlayabiliri. 0 - 9 arasındaki tüm sayıları 1 e 784 lük matristen oluşan değerlerini çizdiğimiz sayı değerine göre karşılaştırarak tahmin yapıyor diyebiliriz.
+# tf.zeros tüm değerleri 0 yapar. yani 784 e 10 luk bir 0 matrisi oluşturmuş oluruz. 784 e 10 luk matris oluşturduk, bu matristen 55000 adet arka arkaya düşünerek eğitimi anlayabiliri. 0 - 9 arasındaki tüm sayıları 1 e 784 lük matristen oluşan değerlerini çizdiğimiz sayı değerine göre karşılaştırarak tahmin yapıyor diyebiliriz.
+W = tf.Variable(tf.zeros([784, 10]))
+
 b = tf.Variable(tf.zeros([10]))
 
-y = tf.nn.softmax(tf.matmul(x,W) + b) # ilk olarak x ile W, tf.matmul ifadesi yardımı ile çarpılır - mathematical multiply
-
+# ilk olarak x ile W, tf.matmul ifadesi yardımı ile çarpılır - mathematical multiply
+y = tf.nn.softmax(tf.matmul(x,W) + b)
 y_ = tf.placeholder(tf.float32, [None, 10])
 
-cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1])) # düzensizliği minimum değere indirgemek için yapılan işlemler, y_ gerçek değerin log-y çarpımı ile olan toplamı düşür ve bu değerlerin ortlamasını düşür. hepsi sırası ile
+# düzensizliği minimum değere indirgemek için yapılan işlemler, y_ gerçek değerin log-y çarpımı ile olan toplamı düşür ve bu değerlerin ortlamasını düşür. hepsi sırası ile
+cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1]))
 
 train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy) # tensorflowu dereceli düşürme ile eğitiyoruz (minimum düzensizlik bazında)
 
-sess = tf.InteractiveSession() # modelimizi çalıştırıyoruz
-tf.global_variables_initializer().run() # oluşturuğumuz değişkenleri başlatıyoruz
+# modelimizi çalıştırıyoruz, session oturumunu başlatıyoruz
+sess = tf.InteractiveSession()
+
+# oluşturuğumuz değişkenleri başlatıyoruz
+tf.global_variables_initializer().run()
 
 for _ in range(1000): # eğitmeye başlıyoruz
   batch_xs, batch_ys = mnist.train.next_batch(100)
