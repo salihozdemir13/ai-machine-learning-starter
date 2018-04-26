@@ -32,6 +32,6 @@ model = tflearn.DNN(neunet, tensorboard_verbose=0)
 model.fit(X, Y, n_epoch=10, validation_set=(testX, testY), show_metric=True, run_id='dense-model')
 
 draw = np.vectorize(lambda x:255 - x)(np.ndarray.flatten(scipy.ndimage.imread("test-draw3.png", flatten=True))) # test-draw örneklerimizden seçiyoruz
-draw = np.array(draw).reshape(1, 784) # çizimimiz tekrar 1 e 784 lük matrise çevirmemiz gerekiyor aksi takdirde hata alıyoruz
+draw = np.array(draw).reshape(1, 784) # çizimimizi tekrar 1 e 784 lük matrise çevirmemiz gerekiyor aksi takdirde hata alıyoruz
 
 print(model.predict(draw))
