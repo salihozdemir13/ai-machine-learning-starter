@@ -24,7 +24,7 @@ def create_lexicon(pos,neg):
 
     l2 = []
     for w in w_counts:
-        # nadir kullanılan kelimeler grubu denebilir.
+        # nadir kullanılan kelimeler grubu denebilir
         if 1000 > w_counts[w] > 50:
             l2.append(w)
 
