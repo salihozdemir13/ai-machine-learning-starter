@@ -46,7 +46,7 @@ print(sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels}
 # Test çizimlerimizi okuyup el ile yazılan rakamı bulmaya çalışıyoruz. #
 # Doğruluk payı %90 civarında buluyor ancak çizimlerde belirlenen piksellerin dışına çıktığım için hatalı sonuçlar verebiliyor.
 
-draw = np.vectorize(lambda x: 255 - x)(np.ndarray.flatten(scipy.ndimage.imread("test-draw4.png", flatten=True)))
+draw = np.vectorize(lambda x: 255 - x)(np.ndarray.flatten(scipy.ndimage.imread("test-draw.png", flatten=True)))
 
 output = sess.run(tf.argmax(y, 1), feed_dict={x: [draw]})
 
