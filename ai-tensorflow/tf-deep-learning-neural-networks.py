@@ -34,7 +34,7 @@ batch_size = 100
 
 # height x width
 x = tf.placeholder('float', [None, 784])
-y = tf.placeholder('float', [None, 784])
+y = tf.placeholder('float')
 
 def neural_network_model(data):
 
