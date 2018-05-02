@@ -1,4 +1,4 @@
-# MNIST Simple Example
+# tf-mnist Simple Example
 # Neural Network
 
 from tensorflow.examples.tutorials.mnist import input_data
