@@ -1,4 +1,5 @@
-""" # Neural network
+""" 
+                             # Neural network
 
             --->                --->                --->
 Input layer ---> hidden layer 1 ---> hidden layer 2 ---> output layer(dropout- softmax)
