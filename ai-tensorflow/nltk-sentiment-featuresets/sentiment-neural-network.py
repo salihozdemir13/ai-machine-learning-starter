@@ -2,6 +2,7 @@ import tensorflow as tf
 import numpy as np
 # from tensorflow.examples.tutorials.mnist import input_data
 # mnist = input_data.read_data_sets("/tmp/data", one_hot=True)
+# we are working our data sets so we comment tensorflow data input part.
 from nltk_sentiment_feature_sets import create_feature_sets_and_labels
 
 train_x, train_y, test_x, test_y = create_feature_sets_and_labels('pos.txt', 'neg.txt')
@@ -52,7 +53,6 @@ def train_neural_network(x):
     #                          learning _rate = 0.001
     optimizer = tf.train.AdamOptimizer().minimize(cost)
 
-    # cycles feed forward + backprop
     hm_epochs = 10
 
     with tf.Session() as sess:
