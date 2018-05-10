@@ -10,7 +10,6 @@ import matplotlib.pyplot as plt
 data = pd.read_csv("linear-reg-linear-reg-test.csv")
 
 # print(data)
-
 x = data["x"]
 y = data["y"]
 x = pd.DataFrame.as_matrix(x) # Numpy matrislerine dönüştür
