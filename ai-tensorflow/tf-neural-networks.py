@@ -1,4 +1,4 @@
-'''
+"""
 input > weight > hidden layer 1 (activation func) > weights > hidden layer 2 (activation func) > weights > output layer
 
 compare output to intended output > cost function (cross entropy)
@@ -7,7 +7,7 @@ optimization function (optimizer) > minimize cost (AdamOptimizer....SGD, AdaGrad
 backpropagatin
 
 feed forward + backprop = epoch
-'''
+"""
 
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
