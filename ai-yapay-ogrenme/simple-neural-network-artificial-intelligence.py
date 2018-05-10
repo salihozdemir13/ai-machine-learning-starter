@@ -1,26 +1,14 @@
 from numpy import exp, array, random, dot
 
-# Sample Neural Network from Medium Documents.
 class NeuralNetwork():
     def __init__(self):
-        # Seed the random number generator, so it generates the same numbers
-        # every time the program runs.
+
         random.seed(1)
-
-        # We model a single neuron, with 3 input connections and 1 output connection.
-        # We assign random weights to a 3 x 1 matrix, with values in the range -1 to 1
-        # and mean 0.
         self.synaptic_weights = 2 * random.random((3, 1)) - 1
-
-    # The Sigmoid function, which describes an S shaped curve.
-    # We pass the weighted sum of the inputs through this function to
-    # normalise them between 0 and 1.
+        
     def __sigmoid(self, x):
         return 1 / (1 + exp(-x))
 
-    # The derivative of the Sigmoid function.
-    # This is the gradient of the Sigmoid curve.
-    # It indicates how confident we are about the existing weight.
     def __sigmoid_derivative(self, x):
         return x * (1 - x)
 
@@ -36,8 +24,6 @@ class NeuralNetwork():
             error = training_set_outputs - output
 
             # Multiply the error by the input and again by the gradient of the Sigmoid curve.
-            # This means less confident weights are adjusted more.
-            # This means inputs, which are zero, do not cause changes to the weights.
             adjustment = dot(training_set_inputs.T, error * self.__sigmoid_derivative(output))
 
             # Adjust the weights.
@@ -45,7 +31,6 @@ class NeuralNetwork():
 
     # The neural network thinks.
     def think(self, inputs):
-        # Pass inputs through our neural network (our single neuron).
         return self.__sigmoid(dot(inputs, self.synaptic_weights))
 
 
